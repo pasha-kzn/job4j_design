@@ -1,8 +1,9 @@
 package ru.job4j.assertj;
-import org.assertj.core.data.Percentage;
-import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import ru.job4j.iterator.assertj.Model;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 class ModelTest {
 

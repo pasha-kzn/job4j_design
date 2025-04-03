@@ -1,4 +1,4 @@
-package ru.job4j.assertj;
+package ru.job4j.iterator.assertj;
 
 public class Model {
     private int top;

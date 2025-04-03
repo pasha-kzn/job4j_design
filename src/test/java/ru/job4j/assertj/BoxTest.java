@@ -1,8 +1,10 @@
 package ru.job4j.assertj;
 
 import org.junit.jupiter.api.Test;
+import ru.job4j.iterator.assertj.Box;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.withPrecision;
 
 class BoxTest {
 
