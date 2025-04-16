@@ -6,13 +6,10 @@ import java.util.Map;
 public final class MemStore<T extends Base> implements Store<T> {
 
     private final Map<String, T> storage = new HashMap<>();
-    private int key = 0;
 
     @Override
     public void add(T model) {
-        if (!storage.containsKey(model.getId())) {
-            storage.put(model.getId(), model);
-        }
+        storage.putIfAbsent(model.getId(), model);
     }
 
     @Override
