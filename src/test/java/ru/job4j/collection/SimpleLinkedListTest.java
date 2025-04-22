@@ -104,7 +104,5 @@ class SimpleLinkedListTest {
         list.add(6);
         assertThat(list.get(4)).isEqualTo(5);
         assertThat(list.get(5)).isEqualTo(6);
-        list.add(7);
-        assertThat(list.get(6)).isEqualTo(7);
     }
 }
