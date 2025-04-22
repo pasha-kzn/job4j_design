@@ -7,9 +7,6 @@ public class SimpleQueue<T> {
     private final SimpleStack<T> output = new SimpleStack<>();
     int size;
 
-    /* добавьте переменные, если они требуются */
-
-
     public T poll() {
         if (size == 0) {
             throw new NoSuchElementException("Queue is empty");
