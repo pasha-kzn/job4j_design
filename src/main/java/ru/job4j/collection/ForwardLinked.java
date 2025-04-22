@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.Objects;
 
-public class ForwardLinked<T> implements Iterable<T> {
+public class    ForwardLinked<T> implements Iterable<T> {
     private int size;
     private int modCount;
     private Node<T> head;
@@ -59,15 +59,14 @@ public class ForwardLinked<T> implements Iterable<T> {
     public Iterator<T> iterator() {
         return new Iterator<T>() {
             private final int expectedModCount = modCount;
-            private int index = 0;
-            private Node<T> node;
+            private Node<T> node = head;
 
             @Override
             public boolean hasNext() {
                 if (expectedModCount != modCount) {
                     throw new ConcurrentModificationException();
                 }
-                return index < size;
+                return node != null;
             }
 
             @Override
@@ -75,13 +74,9 @@ public class ForwardLinked<T> implements Iterable<T> {
                 if (!hasNext()) {
                     throw new NoSuchElementException();
                 }
-                if (node == null) {
-                    node = head;
-                } else {
-                    node = node.next;
-                }
-                index++;
-                return node.item;
+                T item = node.item;
+                node = node.next;
+                return item;
             }
         };
     }
