@@ -15,7 +15,8 @@ public class LogFilter {
         List<String> result = new ArrayList<>();
         try (BufferedReader input = new BufferedReader(new FileReader(this.file))) {
             input.lines().forEach(line -> {
-                if (line.split("\" ")[1].startsWith("404")) {
+                String[] lineElements = line.split(" ");
+                if ("404".equals(lineElements[lineElements.length - 2])) {
                     result.add(line);
                 }
             });
