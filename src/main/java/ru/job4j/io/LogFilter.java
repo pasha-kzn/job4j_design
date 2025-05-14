@@ -32,7 +32,7 @@ public class LogFilter {
                 new BufferedOutputStream(
                         new FileOutputStream(out)
                 ))) {
-            data.forEach(line -> output.printf("%s%n", line));
+            data.forEach(output::println);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -40,6 +40,5 @@ public class LogFilter {
 
     public static void main(String[] args) {
         new LogFilter("data/log.txt").saveTo("data/404.txt");
-
     }
 }
