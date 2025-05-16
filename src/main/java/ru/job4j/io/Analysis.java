@@ -12,10 +12,10 @@ public class Analysis {
                 String[] elements = line.split(" ");
                 String statusCode = elements[0];
                 String time = elements[1];
-                if ((statusCode.equals("400") || statusCode.equals("500")) && start == null) {
+                if (("400".equals(statusCode) || "500".equals(statusCode)) && start == null) {
                     start = time;
-                } else if ((statusCode.equals("200") || statusCode.equals("300")) && start != null) {
-                    writer.println(start + "; " + time);
+                } else if (("200".equals(statusCode) || "300".equals(statusCode)) && start != null) {
+                    writer.println(start + "; " + time + ";");
                     start = null;
                 }
             }
