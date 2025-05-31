@@ -9,13 +9,26 @@ import java.util.function.Predicate;
 
 public class Search {
     public static void main(String[] args) throws IOException {
-        Path start = Paths.get(".");
-        search(start, path -> path.toFile().getName().endsWith(".js")).forEach(System.out::println);
+        validateArguments(args);
+        Path start = Paths.get(args[0]);
+        search(start, path -> path.toFile().getName().endsWith(args[1])).forEach(System.out::println);
     }
 
     public static List<Path> search(Path root, Predicate<Path> condition) throws IOException {
         SearchFiles searcher = new SearchFiles(condition);
         Files.walkFileTree(root, searcher);
         return searcher.getPaths();
+    }
+
+    private static void validateArguments(String[] args) {
+        if (args.length == 0) {
+            throw new IllegalArgumentException("Параметры не переданы. Укажите условия поиска");
+        }
+        if (args.length < 2) {
+            throw new IllegalArgumentException("Не указан путь или расширение файла");
+        }
+        if (args.length > 2) {
+            throw new IllegalArgumentException("Удалите лишние параметры");
+        }
     }
 }
