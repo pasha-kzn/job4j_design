@@ -8,7 +8,7 @@ import java.nio.file.attribute.BasicFileAttributes;
 import java.util.*;
 
 public class DuplicatesVisitor extends SimpleFileVisitor<Path> {
-    Map<FileProperty, List<String>> catalog = new HashMap<>();
+    private Map<FileProperty, List<String>> catalog = new HashMap<>();
 
     @Override
     public FileVisitResult visitFile(Path file,
