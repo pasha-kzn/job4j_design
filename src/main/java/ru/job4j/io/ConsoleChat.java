@@ -26,7 +26,7 @@ public class ConsoleChat {
         boolean isSilent = false;
         while (run) {
             String usersPhrase = input.nextLine();
-            log.add(sdf.format(new Date()) + " stupid user asks:  " + usersPhrase);
+            log.add(String.format("%s stupid user asks:  %s", sdf.format(new Date()), usersPhrase));
             switch (usersPhrase) {
                 case OUT:
                     run = false;
@@ -38,13 +38,13 @@ public class ConsoleChat {
                     isSilent = false;
                     String readyToAnswer = "Готов отвечать дальше";
                     System.out.println(readyToAnswer);
-                    log.add(sdf.format(new Date()) + " smart bot answers: " + readyToAnswer);
+                    log.add(String.format("%s  smart bot answers: %s", sdf.format(new Date()), readyToAnswer));
                     break;
                 default:
                     if (!isSilent) {
                         String botAnswer = botPhrases.get(new Random().nextInt(botPhrases.size()));
                         System.out.println(botAnswer);
-                        log.add(sdf.format(new Date()) + " smart bot answers: " + botAnswer);
+                        log.add(String.format("%s smart bot answers: %s", sdf.format(new Date()), botAnswer));
                     }
             }
         }
