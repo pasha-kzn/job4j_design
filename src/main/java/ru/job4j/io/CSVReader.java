@@ -25,9 +25,9 @@ public class CSVReader {
     public static void handle(ArgsName argsName) throws Exception {
         String delimiter = argsName.get("delimiter");
         List<String> filterFields = Arrays.asList(argsName.get("filter").split(","));
-        try (BufferedReader reader = new BufferedReader(new FileReader(argsName.get("path")));
+        try (Scanner scanner = new Scanner(new FileReader(argsName.get("path"))).useDelimiter(System.lineSeparator());
              PrintWriter output = new PrintWriter(new BufferedOutputStream(new FileOutputStream(argsName.get("out"))))) {
-            String headerLine = reader.readLine();
+            String headerLine = scanner.nextLine();
             if (headerLine == null) {
                 throw new IllegalArgumentException("Файл пустой");
             }
@@ -36,7 +36,8 @@ public class CSVReader {
             output.print(getRow(headerLine, indexes, delimiter));
             output.println();
             String line;
-            while ((line = reader.readLine()) != null) {
+            while (scanner.hasNext()) {
+                line = scanner.nextLine();
                 output.print(getRow(line, indexes, delimiter));
                 output.println();
             }
