@@ -19,7 +19,6 @@ public class EchoServer {
                     if (input.readLine().contains("msg=Bye")) {
                         System.out.println("Server is going sleep. ByeBye");
                         server.close();
-                        break;
                     }
                     output.flush();
                 }
