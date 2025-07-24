@@ -1,0 +1,15 @@
+<house>
+    <constructionsYear>1968</constructionsYear>
+    <material>sticks</material>
+    <hasInternet>false</hasInternet>
+    <rooms>
+        <room>
+            <length>3</length>
+            <width>2</width>
+        </room>
+        <room>
+            <length>4</length>
+            <width>3</width>
+        </room>
+    </rooms>
+</house>
