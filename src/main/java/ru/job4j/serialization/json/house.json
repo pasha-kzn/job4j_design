@@ -1,0 +1,15 @@
+{
+  "constructionsYear": 1968,
+  "material": "sticks",
+  "hasInternet": false,
+  "rooms": [
+    {
+      "length": 4,
+      "width": 3
+    },
+    {
+      "length": 3,
+      "width": 2
+    }
+  ]
+}
