@@ -1,8 +1,21 @@
 package ru.job4j.serialization.json;
 
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlAttribute;
+
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Room {
-    private final int length;
-    private final int width;
+
+    @XmlAttribute
+    private int length;
+
+    @XmlAttribute
+    private int width;
+
+    public Room() {
+
+    }
 
     public Room(int length, int width) {
         this.length = length;

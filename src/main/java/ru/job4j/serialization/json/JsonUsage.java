@@ -5,11 +5,11 @@ import com.google.gson.GsonBuilder;
 
 public class JsonUsage {
     public static void main(String[] args) {
-        final Home home = new Home(2020, "brick", true,
+        final House house = new House(2020, "brick", true,
                 new Room[]{new Room(4, 3), new Room(8, 4)});
 
         final Gson gson = new GsonBuilder().create();
-        System.out.println(gson.toJson(home));
+        System.out.println(gson.toJson(house));
 
         final String homeJson =
                 "{"
@@ -28,7 +28,7 @@ public class JsonUsage {
                         + "}"
                         + "]"
                         + "}";
-        final Home homeMod = gson.fromJson(homeJson, Home.class);
-        System.out.println(homeMod);
+        final House houseMod = gson.fromJson(homeJson, House.class);
+        System.out.println(houseMod);
     }
 }
