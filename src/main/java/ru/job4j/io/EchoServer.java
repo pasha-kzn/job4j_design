@@ -32,7 +32,7 @@ public class EchoServer {
                     output.flush();
                 }
             }
-        } catch(Exception e) {
+        } catch (Exception e) {
             LOG.error("Exception in log example", e);
         }
     }
