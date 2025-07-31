@@ -26,6 +26,22 @@ public class House {
 
     }
 
+    public int getConstructionsYear() {
+        return constructionsYear;
+    }
+
+    public String getMaterial() {
+        return material;
+    }
+
+    public boolean isHasInternet() {
+        return hasInternet;
+    }
+
+    public Room[] getRooms() {
+        return rooms;
+    }
+
     public House(int constructionsYear, String material, boolean hasInternet, Room[] rooms) {
         this.constructionsYear = constructionsYear;
         this.material = material;
