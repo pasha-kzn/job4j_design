@@ -1,1 +1,1 @@
-create database application_system
+create database lessons
