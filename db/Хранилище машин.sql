@@ -38,19 +38,19 @@ insert into cars (name, body_id, engine_id, transmission_id) values
 select c.id, c."name" as car_name, b."name" as body_name, e."name" as engine_name, t."name" as transmission_name from cars c
 left join car_bodies b on c.body_id = b.id 
 left join car_engines e on c.engine_id  = e.id 
-left join car_transmissions t on c.transmission_id = t.id 
+left join car_transmissions t on c.transmission_id = t.id;
 
 --Вывести кузова, которые не используются НИ в одной машине
 select cb."name" from cars c 
 right join car_bodies cb on c.body_id = cb.id 
-where c.id is null
+where c.id is null;
 
 --Вывести двигатели, которые не используются НИ в одной машине
 select ce."name" from cars c 
 right join car_engines ce on c.engine_id = ce.id 
-where c.id is null
+where c.id is null;
 
 --Вывести коробки передач, которые не используются НИ в одной машине
 select ct."name" from cars c 
 right join car_transmissions ct on c.transmission_id = ct.id 
-where c.id is null
+where c.id is null;
