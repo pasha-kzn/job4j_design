@@ -75,5 +75,4 @@ where d.id = 1;
 --Создать таблицу teens с атрибутами name, gender и заполнить ее. Используя cross join составить все возможные разнополые пары. Исключите дублирование пар вида Вася-Маша и Маша-Вася
 select * from teens t1
 cross join teens t2
-where t1.gender != t2.gender
-and t1.name < t2.name;
+where t1.gender < t2.gender;
