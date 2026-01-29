@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+import static java.lang.String.format;
+
 public class ImportDB {
 
     private Properties config;
@@ -27,11 +29,11 @@ public class ImportDB {
         try (BufferedReader reader = new BufferedReader(new FileReader(dump))) {
             reader.lines().forEach(row -> {
                 String[] values = row.split(";");
+                if (values.length != 2 || (values[0].isEmpty() || values[1].isEmpty())) {
+                    throw new IllegalArgumentException(format("В строке '%s' нет пары name и email", row));
+                }
                 users.add(new User(values[0], values[1]));
             });
-        }
-        if (users.isEmpty()) {
-            throw new IllegalArgumentException("Нас обманули. Список спамеров пуст");
         }
         return users;
     }
